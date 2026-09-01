@@ -1,0 +1,254 @@
+2026-02-23 11:38:59.323 +03 [11984] LOG:  starting PostgreSQL 18.1 on x86_64-windows, compiled by msvc-19.44.35222, 64-bit
+2026-02-23 11:38:59.327 +03 [11984] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-02-23 11:38:59.327 +03 [11984] LOG:  listening on IPv6 address "::1", port 5432
+2026-02-23 11:38:59.376 +03 [12652] LOG:  database system was shut down at 2026-02-23 11:38:47 +03
+2026-02-23 11:38:59.382 +03 [11984] LOG:  database system is ready to accept connections
+2026-02-23 11:40:31.566 +03 [16184] ERROR:  duplicate key value violates unique constraint "hadisler_kitap_hadis_no_key"
+2026-02-23 11:40:31.566 +03 [16184] DETAIL:  Key (kitap_id, kitap_hadis_no)=(2, 1) already exists.
+2026-02-23 11:40:31.566 +03 [16184] STATEMENT:  
+	        INSERT INTO hadisler (genel_no, kitap_id, konu_id, kitap_hadis_no, ravi, metin, ham_metin)
+	        VALUES (348, 2, 212, 1, NULL, 'İbnu Ömer (radıyallahu anhümâ) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ı telbiye çekerken -bir rivayette mülebbiyen değil, mülebbiden demiştir-
+	işittim şöyle diyordu: "Lebbeyk Allahümme lebbeyk. Lebbeyk lâ şerîke leke
+	lebbeyk. İnne''l-hamde ve''nni''mete leke ve''l-mülk,lâ şerîke leke." Bu kelimelere
+	başka ilâvede bulunmuyordu.
+	
+	
+	Buharî, Hacc 26, Libâs 89; 
+	Tirmizî, Hacc 13, (825); Ebu Dâvud, Menâsik 27, (1812); Nesâî, Hacc, 54, (5,159-160).', 'İbnu Ömer (radıyallahu anhümâ) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ı telbiye çekerken -bir rivayette mülebbiyen değil, mülebbiden demiştir-
+	işittim şöyle diyordu: "Lebbeyk Allahümme lebbeyk. Lebbeyk lâ şerîke leke
+	lebbeyk. İnne''l-hamde ve''nni''mete leke ve''l-mülk,lâ şerîke leke." Bu kelimelere
+	başka ilâvede bulunmuyordu.
+	
+	
+	Buharî, Hacc 26, Libâs 89; Müslim, Hacc 19 (1184); Muvatta, Hacc 28, (1, 331-332);
+	Tirmizî, Hacc 13, (825); Ebu Dâvud, Menâsik 27, (1812); Nesâî, Hacc, 54, (5,159-160).')
+	        ON CONFLICT (genel_no) DO UPDATE SET
+	            kitap_id = EXCLUDED.kitap_id,
+	            konu_id = EXCLUDED.konu_id,
+	            kitap_hadis_no = EXCLUDED.kitap_hadis_no,
+	            ravi = EXCLUDED.ravi,
+	            metin = EXCLUDED.metin,
+	            ham_metin = EXCLUDED.ham_metin
+	    
+2026-02-23 11:43:59.378 +03 [9012] LOG:  checkpoint starting: time
+2026-02-23 11:47:43.038 +03 [9012] LOG:  checkpoint complete: wrote 2074 buffers (12.7%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=223.110 s, sync=0.530 s, total=223.660 s; sync files=337, longest=0.004 s, average=0.002 s; distance=16430 kB, estimate=16430 kB; lsn=0/27FCBC0, redo lsn=0/27FCB30
+2026-02-23 11:47:55.765 +03 [15764] ERROR:  value too long for type character varying(255)
+2026-02-23 11:47:55.765 +03 [15764] STATEMENT:  
+	        INSERT INTO hadisler (genel_no, kitap_id, konu_id, kitap_hadis_no, ravi, metin, ham_metin)
+	        VALUES (34, 349, 382, 108, 'Enes (radıyallahu anh) ''in anlattığına göre, Hz. Peygamber (aleyhissalâtu vesselâm)''i bir at yere atmıştı. Resûlullah (aleyhissalâtu vesselâm)''ın (sağ) tarafı veya (sağ) omuzu ezildi. Bu O''na ayakta duramayacak kadar ızdırab verdi. O sıralarda hanımlarını da bir ay müddetle terketti. Bu esnada, hurma kütüğünden yapılmış bir merdivenle çıkılan tenezzüh odasına (meşrübe) çekildi. Ashâb (radıyallahu anhum ecmaîn) kendisine "geçmiş olsun" ziyaretine geliyorlardı. Resûlullah (aleyhissalâtu vesselâm) oturarak namaz kılardı, onlar ise ayakta durarak namaza uymuşlardı. Selâmı verince şöyle dedi: "İmam, kendisine uyulmak için vardır. Öyle ise ayakta namaz kıldırıyorsa siz de ayakta kılın, şâyet oturarak kıldırıyorsa siz de oturarak kılın, imam rükuya varmadan rükuya gitmeyin, o başını kaldırmadan siz de kaldırmayın." Râvi', 'Enes (radıyallahu anh) ''in anlattığına göre, Hz. Peygamber (aleyhissalâtu
+	vesselâm)''i bir at yere atmıştı. Resûlullah (aleyhissalâtu vesselâm)''ın (sağ)
+	tarafı veya (sağ) omuzu ezildi. Bu O''na ayakta duramayacak kadar ızdırab verdi. O
+	sıralarda hanımlarını da bir ay müddetle terketti. Bu esnada, hurma kütüğünden
+	yapılmış bir merdivenle çıkılan tenezzüh odasına (meşrübe) çekildi. Ashâb
+	(radıyallahu anhum ecmaîn) kendisine "geçmiş olsun" ziyaretine
+	geliyorlardı. Resûlullah (aleyhissalâtu vesselâm) oturarak namaz kılardı, onlar ise
+	ayakta durarak namaza uymuşlardı. Selâmı verince şöyle dedi: "İmam, kendisine
+	uyulmak için vardır. Öyle ise ayakta namaz kıldırıyorsa siz de ayakta kılın,
+	şâyet oturarak kıldırıyorsa siz de oturarak kılın, imam rükuya varmadan rükuya
+	gitmeyin, o başını kaldırmadan siz de kaldırmayın."
+	
+	
+	Râvi der ki: "Hz. Peygamber (aleyhissalâtu vesselâm) ayın 29''unda meşrübeden
+	indi. Ashâb: "Ey Allah''ın Resûlü, sen bir aylık bir müddet için îlâ''ya
+	(ayrı kalmaya) karar vermiştin" dediler. Onlara: "Bu ay yirmi dokuz
+	gündür" cevabını verdi."
+	
+	
+	
+	Nikâh 91, Talâk 21, Eymân 20; Tirmizî, Savm 6, (690); Nesâî, Talak 32, (6, 166).
+	
+	
+	Buhârî ve Müslim''de Ümmü Seleme''den gelen bir rivayette: "Bu ay yirmi dokuz
+	çekiyor" buyurmuştur.
+	
+	
+	Müslim''de Câbir (radıyallahu anh)''dan kaydedilen bir rivayette: "Sonra iki
+	elini üç sefer uzattı, ikisinde her iki elinin bütün parmaklarıyla, sonuncu kerede
+	sadece dokuz parmağıyla işaret etmişti" diye (yirmi dokuzu gösterdiği
+	açıklanır) (Sıyam 24).', 'Enes (radıyallahu anh) ''in anlattığına göre, Hz. Peygamber (aleyhissalâtu
+	vesselâm)''i bir at yere atmıştı. Resûlullah (aleyhissalâtu vesselâm)''ın (sağ)
+	tarafı veya (sağ) omuzu ezildi. Bu O''na ayakta duramayacak kadar ızdırab verdi. O
+	sıralarda hanımlarını da bir ay müddetle terketti. Bu esnada, hurma kütüğünden
+	yapılmış bir merdivenle çıkılan tenezzüh odasına (meşrübe) çekildi. Ashâb
+	(radıyallahu anhum ecmaîn) kendisine "geçmiş olsun" ziyaretine
+	geliyorlardı. Resûlullah (aleyhissalâtu vesselâm) oturarak namaz kılardı, onlar ise
+	ayakta durarak namaza uymuşlardı. Selâmı verince şöyle dedi: "İmam, kendisine
+	uyulmak için vardır. Öyle ise ayakta namaz kıldırıyorsa siz de ayakta kılın,
+	şâyet oturarak kıldırıyorsa siz de oturarak kılın, imam rükuya varmadan rükuya
+	gitmeyin, o başını kaldırmadan siz de kaldırmayın."
+	
+	
+	Râvi der ki: "Hz. Peygamber (aleyhissalâtu vesselâm) ayın 29''unda meşrübeden
+	indi. Ashâb: "Ey Allah''ın Resûlü, sen bir aylık bir müddet için îlâ''ya
+	(ayrı kalmaya) karar vermiştin" dediler. Onlara: "Bu ay yirmi dokuz
+	gündür" cevabını verdi."
+	
+	
+	Buhârî, Salat 18, Ezan 51, 82, 128, Sıfatu''s-Salat 83, 128, Savm 11, Mezâlim 25,
+	Nikâh 91, Talâk 21, Eymân 20; Tirmizî, Savm 6, (690); Nesâî, Talak 32, (6, 166).
+	
+	
+	Buhârî ve Müslim''de Ümmü Seleme''den gelen bir rivayette: "Bu ay yirmi dokuz
+	çekiyor" buyurmuştur.
+	
+	
+	Müslim''de Câbir (radıyallahu anh)''dan kaydedilen bir rivayette: "Sonra iki
+	elini üç sefer uzattı, ikisinde her iki elinin bütün parmaklarıyla, sonuncu kerede
+	sadece dokuz parmağıyla işaret etmişti" diye (yirmi dokuzu gösterdiği
+	açıklanır) (Sıyam 24).')
+	        ON CONFLICT (genel_no) DO UPDATE SET
+	            kitap_id = EXCLUDED.kitap_id,
+	            konu_id = EXCLUDED.konu_id,
+	            kitap_hadis_no = EXCLUDED.kitap_hadis_no,
+	            ravi = EXCLUDED.ravi,
+	            metin = EXCLUDED.metin,
+	            ham_metin = EXCLUDED.ham_metin
+	    
+2026-02-23 11:48:59.048 +03 [9012] LOG:  checkpoint starting: time
+2026-02-23 11:52:25.880 +03 [9012] LOG:  checkpoint complete: wrote 1926 buffers (11.8%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=206.761 s, sync=0.053 s, total=206.833 s; sync files=30, longest=0.004 s, average=0.002 s; distance=18070 kB, estimate=18070 kB; lsn=0/413FA40, redo lsn=0/39A24B8
+2026-02-23 11:58:59.887 +03 [9012] LOG:  checkpoint starting: time
+2026-02-23 12:02:32.125 +03 [9012] LOG:  checkpoint complete: wrote 1991 buffers (12.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=212.157 s, sync=0.064 s, total=212.239 s; sync files=32, longest=0.006 s, average=0.002 s; distance=18406 kB, estimate=18406 kB; lsn=0/5369D88, redo lsn=0/4B9BD60
+2026-02-23 12:48:19.585 +03 [14888] ERROR:  duplicate key value violates unique constraint "hadisler_kitap_konu_hadis_no_key"
+2026-02-23 12:48:19.585 +03 [14888] DETAIL:  Key (kitap_id, konu_id, kitap_hadis_no)=(353, 464, 1063) already exists.
+2026-02-23 12:48:19.585 +03 [14888] STATEMENT:  
+	        INSERT INTO hadisler (genel_no, kitap_id, konu_id, kitap_hadis_no, ravi, metin, ham_metin)
+	        VALUES (170, 353, 464, 1063, 'Ebu Bekir', 'Ebu Bekir (radıyallahu anh) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ın şöyle söylediğini işittim: "Kim (kendisine eman verilerek)
+	antlaşma yapılan bir kimseyi vakti dışında öldürürse, Allah ona ceneti haram
+	eder."', 'Ebu Bekir (radıyallahu anh) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ın şöyle söylediğini işittim: "Kim (kendisine eman verilerek)
+	antlaşma yapılan bir kimseyi vakti dışında öldürürse, Allah ona ceneti haram
+	eder."
+	
+	
+	Ebu Dâvud, Cihâd 165, (2760); Nesâî, Kasâme 14, (8, 24).')
+	        ON CONFLICT (genel_no) DO UPDATE SET
+	            kitap_id = EXCLUDED.kitap_id,
+	            konu_id = EXCLUDED.konu_id,
+	            kitap_hadis_no = EXCLUDED.kitap_hadis_no,
+	            ravi = EXCLUDED.ravi,
+	            metin = EXCLUDED.metin,
+	            ham_metin = EXCLUDED.ham_metin
+	    
+2026-02-23 12:48:59.227 +03 [9012] LOG:  checkpoint starting: time
+2026-02-23 12:49:01.578 +03 [10856] ERROR:  duplicate key value violates unique constraint "hadisler_genel_no_key"
+2026-02-23 12:49:01.578 +03 [10856] DETAIL:  Key (genel_no)=(5) already exists.
+2026-02-23 12:49:01.578 +03 [10856] STATEMENT:  
+	        INSERT INTO hadisler (genel_no, kitap_id, konu_id, kitap_hadis_no, ravi, metin, ham_metin)
+	        VALUES (5, 17899, 17899, 4, 'Ebu Sa''îd', 'Yine Ebu Sa''îd (radıyallahu anh) hazretleri der ki: "Hz. Peygamber
+	(aleyhissalâtu vesselâm) şöyle buyurdular: "Bir kul İslâm''a girer ve bunda
+	samimi olursa, daha önce yaptığı bütün hayırları Allah, lehine yazar, işlemiş
+	olduğu bütün şerleri de affeder. Müslüman olduktan sonra yaptıkları da şu
+	şekilde muâmele görür: Yaptığı her hayır için en az on misli olmak üzere
+	yediyüz misline kadar sevap yazılır. İşlediği her bir şer için de, -Allah
+	affetmediği takdirde- bir günah yazılır."', 'Yine Ebu Sa''îd (radıyallahu anh) hazretleri der ki: "Hz. Peygamber
+	(aleyhissalâtu vesselâm) şöyle buyurdular: "Bir kul İslâm''a girer ve bunda
+	samimi olursa, daha önce yaptığı bütün hayırları Allah, lehine yazar, işlemiş
+	olduğu bütün şerleri de affeder. Müslüman olduktan sonra yaptıkları da şu
+	şekilde muâmele görür: Yaptığı her hayır için en az on misli olmak üzere
+	yediyüz misline kadar sevap yazılır. İşlediği her bir şer için de, -Allah
+	affetmediği takdirde- bir günah yazılır."
+	
+	
+	Buharî hadisi tâlik olarak kaydeder (İman 31), Nesâî, İman 10, (8, 105).')
+	        ON CONFLICT ON CONSTRAINT hadisler_kitap_konu_hadis_no_key DO UPDATE SET
+	            genel_no = EXCLUDED.genel_no,
+	            kitap_id = EXCLUDED.kitap_id,
+	            konu_id = EXCLUDED.konu_id,
+	            kitap_hadis_no = EXCLUDED.kitap_hadis_no,
+	            ravi = EXCLUDED.ravi,
+	            metin = EXCLUDED.metin,
+	            ham_metin = EXCLUDED.ham_metin
+	    
+2026-02-23 12:49:20.856 +03 [9012] LOG:  checkpoint complete: wrote 197 buffers (1.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=21.549 s, sync=0.058 s, total=21.629 s; sync files=30, longest=0.005 s, average=0.002 s; distance=8411 kB, estimate=17406 kB; lsn=0/53E4F68, redo lsn=0/53D2AF0
+2026-02-23 12:50:03.930 +03 [16308] ERROR:  duplicate key value violates unique constraint "hadisler_kitap_konu_hadis_no_key"
+2026-02-23 12:50:03.930 +03 [16308] DETAIL:  Key (kitap_id, konu_id, kitap_hadis_no)=(353, 464, 1063) already exists.
+2026-02-23 12:50:03.930 +03 [16308] STATEMENT:  
+	        WITH updated AS (
+	            UPDATE hadisler
+	            SET
+	                kitap_id = 353,
+	                konu_id = 464,
+	                kitap_hadis_no = 1063,
+	                ravi = 'Ebu Bekir',
+	                metin = 'Ebu Bekir (radıyallahu anh) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ın şöyle söylediğini işittim: "Kim (kendisine eman verilerek)
+	antlaşma yapılan bir kimseyi vakti dışında öldürürse, Allah ona ceneti haram
+	eder."',
+	                ham_metin = 'Ebu Bekir (radıyallahu anh) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ın şöyle söylediğini işittim: "Kim (kendisine eman verilerek)
+	antlaşma yapılan bir kimseyi vakti dışında öldürürse, Allah ona ceneti haram
+	eder."
+	
+	
+	Ebu Dâvud, Cihâd 165, (2760); Nesâî, Kasâme 14, (8, 24).'
+	            WHERE genel_no = 170
+	            RETURNING id
+	        )
+	        INSERT INTO hadisler (genel_no, kitap_id, konu_id, kitap_hadis_no, ravi, metin, ham_metin)
+	        SELECT 170, 353, 464, 1063, 'Ebu Bekir', 'Ebu Bekir (radıyallahu anh) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ın şöyle söylediğini işittim: "Kim (kendisine eman verilerek)
+	antlaşma yapılan bir kimseyi vakti dışında öldürürse, Allah ona ceneti haram
+	eder."', 'Ebu Bekir (radıyallahu anh) anlatıyor: "Resûlullah (aleyhissalâtu
+	vesselâm)''ın şöyle söylediğini işittim: "Kim (kendisine eman verilerek)
+	antlaşma yapılan bir kimseyi vakti dışında öldürürse, Allah ona ceneti haram
+	eder."
+	
+	
+	Ebu Dâvud, Cihâd 165, (2760); Nesâî, Kasâme 14, (8, 24).'
+	        WHERE NOT EXISTS (SELECT 1 FROM updated)
+	        ON CONFLICT ON CONSTRAINT hadisler_kitap_konu_hadis_no_key DO UPDATE SET
+	            genel_no = EXCLUDED.genel_no,
+	            kitap_id = EXCLUDED.kitap_id,
+	            konu_id = EXCLUDED.konu_id,
+	            kitap_hadis_no = EXCLUDED.kitap_hadis_no,
+	            ravi = EXCLUDED.ravi,
+	            metin = EXCLUDED.metin,
+	            ham_metin = EXCLUDED.ham_metin
+	    
+2026-02-23 12:53:59.868 +03 [9012] LOG:  checkpoint starting: time
+2026-02-23 12:57:24.635 +03 [9012] LOG:  checkpoint complete: wrote 1890 buffers (11.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=204.677 s, sync=0.067 s, total=204.767 s; sync files=37, longest=0.003 s, average=0.002 s; distance=20094 kB, estimate=20094 kB; lsn=0/8737558, redo lsn=0/67723E0
+2026-02-23 12:58:59.647 +03 [9012] LOG:  checkpoint starting: time
+2026-02-23 13:03:29.134 +03 [9012] LOG:  checkpoint complete: wrote 3322 buffers (20.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 2 recycled; write=269.419 s, sync=0.046 s, total=269.488 s; sync files=21, longest=0.005 s, average=0.003 s; distance=32635 kB, estimate=32635 kB; lsn=0/8759760, redo lsn=0/87512D8
+2026-02-23 13:03:42.341 +03 [9012] LOG:  shutting down
+2026-02-23 13:03:42.341 +03 [6776] ERROR:  canceling statement due to user request
+2026-02-23 13:03:42.344 +03 [11984] LOG:  received fast shutdown request
+2026-02-23 13:03:42.346 +03 [9012] LOG:  checkpoint starting: shutdown immediate
+2026-02-23 13:03:42.353 +03 [11984] LOG:  aborting any active transactions
+2026-02-23 13:03:42.356 +03 [9412] FATAL:  terminating connection due to administrator command
+2026-02-23 13:03:42.357 +03 [15560] FATAL:  terminating connection due to administrator command
+2026-02-23 13:03:42.357 +03 [16220] FATAL:  terminating connection due to administrator command
+2026-02-23 13:03:42.357 +03 [16036] FATAL:  terminating connection due to administrator command
+2026-02-23 13:03:42.357 +03 [9552] FATAL:  terminating connection due to administrator command
+2026-02-23 13:03:42.363 +03 [11984] LOG:  background worker "logical replication launcher" (PID 6776) exited with exit code 1
+2026-02-23 13:03:42.380 +03 [9012] LOG:  checkpoint complete: wrote 6 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.007 s, total=0.039 s; sync files=2, longest=0.004 s, average=0.004 s; distance=33 kB, estimate=29375 kB; lsn=0/8759810, redo lsn=0/8759810
+2026-02-23 13:03:42.406 +03 [11984] LOG:  database system is shut down
+2026-02-23 13:06:19.945 +03 [8620] LOG:  starting PostgreSQL 18.1 on x86_64-windows, compiled by msvc-19.44.35222, 64-bit
+2026-02-23 13:06:19.948 +03 [8620] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-02-23 13:06:19.948 +03 [8620] LOG:  listening on IPv6 address "::1", port 5432
+2026-02-23 13:06:19.991 +03 [4124] LOG:  database system was shut down at 2026-02-23 13:03:42 +03
+2026-02-23 13:06:19.999 +03 [8620] LOG:  database system is ready to accept connections
+2026-02-23 13:11:19.990 +03 [11236] LOG:  checkpoint starting: time
+2026-02-23 13:14:35.910 +03 [11236] LOG:  checkpoint complete: wrote 1338 buffers (8.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 3 recycled; write=195.850 s, sync=0.039 s, total=195.921 s; sync files=79, longest=0.006 s, average=0.001 s; distance=53038 kB, estimate=53038 kB; lsn=0/D92CCD8, redo lsn=0/BB25120
+2026-02-23 13:16:19.925 +03 [11236] LOG:  checkpoint starting: time
+2026-02-23 13:19:39.197 +03 [11236] LOG:  checkpoint complete: wrote 1845 buffers (11.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 2 recycled; write=199.167 s, sync=0.078 s, total=199.273 s; sync files=36, longest=0.004 s, average=0.003 s; distance=30767 kB, estimate=50811 kB; lsn=0/D930DC8, redo lsn=0/D930D38
+2026-02-23 14:36:00.119 +03 [8620] LOG:  client backend (PID 8640) was terminated by exception 0xC000013A
+2026-02-23 14:36:00.119 +03 [8620] DETAIL:  Failed process was running: /*pga4dash*/
+	SELECT 'session_stats' AS chart_name, pg_catalog.row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT count(*) FROM pg_catalog.pg_stat_activity WHERE datname = (SELECT datname FROM pg_catalog.pg_database WHERE oid = 16384)) AS "Total",
+	   (SELECT count(*) FROM pg_catalog.pg_stat_activity WHERE state = 'active' AND datname = (SELECT datname FROM pg_catalog.pg_database WHERE oid = 16384))  AS "Active",
+	   (SELECT count(*) FROM pg_catalog.pg_stat_activity WHERE state = 'idle' AND datname = (SELECT datname FROM pg_catalog.pg_database WHERE oid = 16384))  AS "Idle"
+	) t
+	UNION ALL
+	SELECT 'tps_stats' AS chart_name, pg_catalog.row_to_json(t) AS chart_data
+	FROM (SELECT
+	   (SELECT sum(xact_commit) + sum(xact_rollback) FROM pg_catalog.pg_stat_database WHERE datname = (SELECT datname FROM pg_catalog.pg_database WHERE oid = 16384)) AS "Transactions",
+	   (SELECT sum(xact_commit) FROM pg_catalog.pg_stat_database WHERE datname = (SELECT datname FROM pg_catalog.pg_database WHERE oid = 16384)) AS "Commits",
+	   (SE
+2026-02-23 14:36:00.119 +03 [8620] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2026-02-23 14:36:00.119 +03 [8620] LOG:  terminating any other active server processes
+2026-02-23 14:36:00.126 +03 [8620] LOG:  all server processes terminated; reinitializing
+^C
