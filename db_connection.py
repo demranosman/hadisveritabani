@@ -1,6 +1,5 @@
 import os
-
-import psycopg2
+import sqlite3
 
 
 def load_dotenv(dotenv_path: str = ".env") -> None:
@@ -24,20 +23,8 @@ def load_dotenv(dotenv_path: str = ".env") -> None:
 def get_connection():
     load_dotenv()
 
-    database_url = os.getenv("DATABASE_URL")
-    if database_url:
-        return psycopg2.connect(database_url)
-
-    password = os.getenv("PGPASSWORD")
-    if not password:
-        raise RuntimeError(
-            "PostgreSQL şifresi bulunamadı. .env içine PGPASSWORD yazın veya DATABASE_URL ayarlayın."
-        )
-
-    return psycopg2.connect(
-        dbname=os.getenv("PGDATABASE", "hadisdb"),
-        user=os.getenv("PGUSER", "postgres"),
-        password=password,
-        host=os.getenv("PGHOST", "localhost"),
-        port=os.getenv("PGPORT", "5432"),
-    )
+    db_path = os.getenv("DB_PATH", "hadisler.db")
+    conn = sqlite3.connect(db_path)
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA foreign_keys=ON")
+    return conn

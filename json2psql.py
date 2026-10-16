@@ -10,14 +10,10 @@ cur = conn.cursor()
 
 def get_or_create_kitap_id(kitap_ad):
     cur.execute(
-        """
-        INSERT INTO kitaplar (ad)
-        VALUES (%s)
-        ON CONFLICT (ad) DO UPDATE SET ad = EXCLUDED.ad
-        RETURNING id
-        """,
+        "INSERT OR IGNORE INTO kitaplar (ad) VALUES (?)",
         (kitap_ad,),
     )
+    cur.execute("SELECT id FROM kitaplar WHERE ad = ?", (kitap_ad,))
     row = cur.fetchone()
     if row is None:
         raise RuntimeError(f"Kitap ID alınamadı: {kitap_ad}")
@@ -26,18 +22,18 @@ def get_or_create_kitap_id(kitap_ad):
 
 def get_or_create_konu_id(kitap_id, konu_ad):
     cur.execute(
-        """
-        INSERT INTO konular (kitap_id, ad)
-        VALUES (%s, %s)
-        ON CONFLICT (kitap_id, ad) DO UPDATE SET ad = EXCLUDED.ad
-        RETURNING id
-        """,
+        "INSERT OR IGNORE INTO konular (kitap_id, ad) VALUES (?, ?)",
+        (kitap_id, konu_ad),
+    )
+    cur.execute(
+        "SELECT id FROM konular WHERE kitap_id = ? AND ad = ?",
         (kitap_id, konu_ad),
     )
     row = cur.fetchone()
     if row is None:
         raise RuntimeError(f"Konu ID alınamadı: {konu_ad}")
     return row[0]
+
 
 input_json = os.getenv("INPUT_JSON", "hadisler.json")
 
@@ -85,46 +81,26 @@ for index, kayit in enumerate(veriler, start=1):
     kitap_id = get_or_create_kitap_id(kitap_ad)
     konu_id = get_or_create_konu_id(kitap_id, konu_ad)
 
-    cur.execute("""
-        WITH updated AS (
-            UPDATE hadisler
-            SET
-                kitap_id = %s,
-                konu_id = %s,
-                kitap_hadis_no = %s,
-                ravi = %s,
-                metin = %s,
-                ham_metin = %s
-            WHERE genel_no = %s
-            RETURNING id
-        )
+    cur.execute(
+        """
         INSERT INTO hadisler (genel_no, kitap_id, konu_id, kitap_hadis_no, ravi, metin, ham_metin)
-        SELECT %s, %s, %s, %s, %s, %s, %s
-        WHERE NOT EXISTS (SELECT 1 FROM updated)
-        ON CONFLICT ON CONSTRAINT hadisler_kitap_konu_hadis_no_key DO UPDATE SET
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT (kitap_id, konu_id, kitap_hadis_no) DO UPDATE SET
             genel_no = EXCLUDED.genel_no,
-            kitap_id = EXCLUDED.kitap_id,
-            konu_id = EXCLUDED.konu_id,
-            kitap_hadis_no = EXCLUDED.kitap_hadis_no,
             ravi = EXCLUDED.ravi,
             metin = EXCLUDED.metin,
             ham_metin = EXCLUDED.ham_metin
-    """, (
-        kitap_id,
-        konu_id,
-        kitap_hadis_no,
-        ravi,
-        metin,
-        ham_metin,
-        genel_no,
-        genel_no,
-        kitap_id,
-        konu_id,
-        kitap_hadis_no,
-        ravi,
-        metin,
-        ham_metin,
-    ))
+        """,
+        (
+            genel_no,
+            kitap_id,
+            konu_id,
+            kitap_hadis_no,
+            ravi,
+            metin,
+            ham_metin,
+        ),
+    )
 
 conn.commit()
 cur.close()
